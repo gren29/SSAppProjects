@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.view.SplashLogoutActivity"></activity>
-        <activity android:name=".presentation.view.RegisterActivity" />
-        <activity android:name=".presentation.view.LoginActivity" />
-        <activity android:name=".presentation.view.SplashActivity">
+        <activity android:name=".presentation.view.activity.Home"></activity>
+        <activity android:name=".presentation.view.activity.SplashLogoutActivity" />
+        <activity android:name=".presentation.view.activity.RegisterActivity" />
+        <activity android:name=".presentation.view.activity.LoginActivity" />
+        <activity android:name=".presentation.view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

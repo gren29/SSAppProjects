@@ -1,15 +1,14 @@
-package com.example.projectonewifi.presentation.view;
+package com.example.projectonewifi.presentation.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.projectonewifi.R;
 import com.example.projectonewifi.databinding.ActivityLoginBinding;
 import com.example.projectonewifi.presentation.presenter.LoginPresenter;
 
@@ -17,6 +16,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private LoginPresenter presenter = new LoginPresenter();
+
+    public static final String MY_PREFERENCES = "ID_USER";
 
     private String idUser;
     private String password;
@@ -34,12 +35,15 @@ public class LoginActivity extends AppCompatActivity {
                 password = binding.etPasswordLogin.getText().toString();
 
                 if (presenter.onClickLogin(idUser, password)) {
-                    Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, Home.class);
                     startActivity(intent);
+                    onSaveIdUser(idUser);
+                    binding.etIdUserLogin.setText("");
+                    binding.etPasswordLogin.setText("");
                 } else {
                     binding.etIdUserLogin.setText("");
                     binding.etPasswordLogin.setText("");
-                    Toast.makeText(getApplicationContext(), " NEL", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), " Datos incorrectos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -53,5 +57,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void onSaveIdUser(String idUser) {
+        SharedPreferences sharedPreferencesKeepSignedIn = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferencesKeepSignedIn.edit();
+        editor.putString("user_id",idUser);
+        editor.commit();
     }
 }

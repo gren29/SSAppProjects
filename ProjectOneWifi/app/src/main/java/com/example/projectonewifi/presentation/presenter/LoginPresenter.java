@@ -1,5 +1,8 @@
 package com.example.projectonewifi.presentation.presenter;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.projectonewifi.domain.usecase.GetLoginUseCase;
 
 public class LoginPresenter implements LoginInterface{
@@ -8,8 +11,8 @@ public class LoginPresenter implements LoginInterface{
 
     @Override
     public boolean onClickLogin(String idUser, String password) {
-        if(getLoginUseCase.getIdUser(idUser) && getLoginUseCase.getPassword(password))
-            return true;
+        if(idUser.isEmpty() || password.isEmpty()) return false;
+        if(getLoginUseCase.getIdUser(idUser) && getLoginUseCase.getPassword(password)) return true;
         return false;
     }
 

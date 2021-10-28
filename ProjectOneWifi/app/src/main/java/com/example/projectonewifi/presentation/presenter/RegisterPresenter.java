@@ -8,7 +8,8 @@ public class RegisterPresenter implements  RegisterInterface {
 
     @Override
     public boolean insertDataUser(String idUser, String name, String password, String email) {
-        insertDataUserUseCase.insertDataUser(idUser, name, password, email);
-        return true;
+        if(idUser.isEmpty() || name.isEmpty() || password.isEmpty() || email.isEmpty()) return false;
+        if(insertDataUserUseCase.insertDataUser(idUser, name, password, email)) return true;
+        return false;
     }
 }

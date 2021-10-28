@@ -1,12 +1,16 @@
 package com.example.projectonewifi.domain.usecase;
 
+import com.example.projectonewifi.data.repository.UserRepository;
+
 public class GetLoginUseCase {
 
+    private UserRepository userRepository = new UserRepository();
+
     public boolean getIdUser(String idUser) {
-        return true;
+       return userRepository.getIdUser(idUser);
     }
 
     public boolean getPassword(String password) {
-        return true;
+        return userRepository.getPassword(password);
     }
 }

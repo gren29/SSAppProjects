@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.RegisterActivity">
+    tools:context=".presentation.view.activity.RegisterActivity">
 
     <ImageView
         android:id="@+id/background"
@@ -17,13 +17,13 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
+        android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_marginTop="50dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/logodos"/>
 
     <EditText
         android:id="@+id/etNameRegister"
@@ -60,6 +60,7 @@
         android:textColorHint="@color/colorLetterBlue"
         android:layout_marginTop="24dp"
         android:paddingStart="20dp"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etIdUserRegister"/>
