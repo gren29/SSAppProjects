@@ -55,25 +55,21 @@ public class ContactFragment extends Fragment {
         recyclerViewContaccts = (RecyclerView)view.findViewById(R.id.rvContacts);
         recyclerViewContaccts.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        initContactsList();
+        listContacts = presenter.checkContacts();
+        ContactAdapter adapter = new ContactAdapter(listContacts);
+        recyclerViewContaccts.setAdapter(adapter);
 
         btnNewContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 idContact = etContact.getText().toString();
-                presenter.onClickAddContact(idContact);
-                initContactsList();
+                listContacts = presenter.onClickAddContact(idContact);
+                ContactAdapter adapter = new ContactAdapter(listContacts);
+                recyclerViewContaccts.setAdapter(adapter);
                 etContact.setText("");
             }
         });
 
         return  view;
-    }
-
-    public void initContactsList() {
-        listContacts.clear();
-        listContacts = presenter.checkContacts();
-        ContactAdapter adapter = new ContactAdapter(listContacts);
-        recyclerViewContaccts.setAdapter(adapter);
     }
 }

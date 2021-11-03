@@ -15,13 +15,13 @@ public class HomePresenter implements HomeInterface {
     private InsertNewContactUseCase insertNewContactUseCase = new InsertNewContactUseCase();
 
     @Override
-    public void onClickSendState(String idUser, String mensaje) {
-        insertStateUseCase.insertState(idUser, mensaje);
+    public ArrayList<StateModel> onClickSendState(String idUser, String mensaje) {
+        return insertStateUseCase.insertState(idUser, mensaje);
     }
 
     @Override
-    public void onClickAddContact(String idUser) {
-        insertNewContactUseCase.insertContact(idUser);
+    public ArrayList<ContactModel> onClickAddContact(String idUser) {
+        return insertNewContactUseCase.insertContact(idUser);
     }
 
     @Override

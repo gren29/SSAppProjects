@@ -1,12 +1,15 @@
 package com.example.projectonewifi.domain.usecase;
 
 import com.example.projectonewifi.data.repository.HomeRepository;
+import com.example.projectonewifi.domain.model.ContactModel;
+
+import java.util.ArrayList;
 
 public class InsertNewContactUseCase {
 
     public HomeRepository homeRepository = new HomeRepository();
 
-    public void insertContact(String idUser) {
-        homeRepository.insertContact(idUser);
+    public ArrayList<ContactModel> insertContact(String idUser) {
+        return homeRepository.insertContact(idUser);
     }
 }

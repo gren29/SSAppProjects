@@ -56,26 +56,22 @@ public class StateFragment extends Fragment {
         recyclerViewStates = (RecyclerView)view.findViewById(R.id.rvStates);
         recyclerViewStates.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        iniStatesList();
+        listStates = presenter.getStates();
+        StateAdapter adapter = new StateAdapter(listStates);
+        recyclerViewStates.setAdapter(adapter);
 
         tbnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 stringState = etState.getText().toString();
                 onGetIdUser();
-                presenter.onClickSendState(idUser, stringState);
-                iniStatesList();
+                listStates = presenter.onClickSendState(idUser, stringState);
+                StateAdapter adapter = new StateAdapter(listStates);
+                recyclerViewStates.setAdapter(adapter);
                 etState.setText("");
             }
         });
         return  view;
-    }
-
-    private void iniStatesList() {
-        listStates.clear();
-        listStates = presenter.getStates();
-        StateAdapter adapter = new StateAdapter(listStates);
-        recyclerViewStates.setAdapter(adapter);
     }
 
     public void onGetIdUser() {

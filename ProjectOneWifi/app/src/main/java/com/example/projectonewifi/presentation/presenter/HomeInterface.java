@@ -6,8 +6,8 @@ import com.example.projectonewifi.domain.model.StateModel;
 import java.util.ArrayList;
 
 public interface HomeInterface {
-    void onClickSendState(String idUser, String mensaje);
-    void onClickAddContact(String idUser);
+    ArrayList<StateModel> onClickSendState(String idUser, String mensaje);
+    ArrayList<ContactModel> onClickAddContact(String idUser);
     boolean onClickExitHome(Boolean option);
     ArrayList<StateModel> getStates();
     ArrayList<ContactModel> checkContacts();
