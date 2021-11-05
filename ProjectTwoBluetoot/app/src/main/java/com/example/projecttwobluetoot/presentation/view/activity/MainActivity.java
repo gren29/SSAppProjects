@@ -1,8 +1,10 @@
-package com.example.projecttwobluetoot;
+package com.example.projecttwobluetoot.presentation.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.projecttwobluetoot.R;
 
 public class MainActivity extends AppCompatActivity {
 
