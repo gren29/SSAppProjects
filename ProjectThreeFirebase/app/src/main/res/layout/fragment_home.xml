@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundwhite"
+    tools:context=".presentation.view.fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@drawable/background_round_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logodos"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvIdUserHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorLetterWhite"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        android:text="@string/hi_user"/>
+
+    <TextView
+        android:id="@+id/tvNameHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="15sp"
+        android:text="@string/ra_l_sanchez_rico"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/background"/>
+
+    <TextView
+        android:id="@+id/tvEscomHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="15sp"
+        android:text="@string/escom"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNameHome"/>
+
+    <TextView
+        android:id="@+id/tvIPNHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="15sp"
+        android:text="@string/ipn"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEscomHome"/>
+
+    <TextView
+        android:id="@+id/tvVersionHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="15sp"
+        android:text="@string/v_0_5"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIPNHome"/>
+
+    <TextView
+        android:id="@+id/tvExitHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/salir"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSalirHome"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalirHome"
+        app:layout_constraintTop_toTopOf="@+id/btnSalirHome" />
+
+    <ImageButton
+        android:id="@+id/btnSalirHome"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/backgroundwhite"
+        android:src="@drawable/fniconosexit"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvVersionHome" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

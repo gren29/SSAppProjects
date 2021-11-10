@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ProjectThreeFirebase</string>
+    <string name="bienvenido_splash">Bienvenido App 3</string>
+    <string name="id_usuario">ID usuario</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sin_cuenta">No tienes cuenta?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="salir">Salir?</string>
+    <string name="escom">ESCOM</string>
+    <string name="ipn">IPN</string>
+    <string name="ra_l_sanchez_rico">Raúl Sanchez Rico</string>
+    <string name="hi_user">Hi User!</string>
+    <string name="v_0_5">V 0.5</string>
 </resources>

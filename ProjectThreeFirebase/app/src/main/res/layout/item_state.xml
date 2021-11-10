@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:src="@drawable/fnalertaslabeldos"
+        android:scaleType="fitXY"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgRecycleViewUserState2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/background_item_status"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/background" />
+
+    <ImageView
+        android:id="@+id/imgRecycleViewUserState"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:paddingBottom="5dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        tools:src="@drawable/ic_baseline_notifications_24_white" />
+
+    <TextView
+        android:id="@+id/tvRecycleViewIdUserState"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ID USER"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/imgRecycleViewUserState"
+        app:layout_constraintTop_toTopOf="@+id/imgRecycleViewUserState" />
+
+
+    <TextView
+        android:id="@+id/tvRecycleViewIdPublicacionState"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ID PUBLICACION"
+        android:textColor="@color/colorLetterBlack"
+        android:textSize="13dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/tvRecycleViewIdUserState"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecycleViewIdUserState" />
+
+    <TextView
+        android:id="@+id/tvRecycleViewMenajeState"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Mensaje predeterminado sdlfjsdn lkd ljdsf lds dlsj fllkjsf lsdfgi ugiu  uig ii igiug iu igiu gj jdsflj"
+        android:textColor="@color/colorLetterBlack"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:gravity="left"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintStart_toEndOf="@+id/imgRecycleViewUserState"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecycleViewIdPublicacionState" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
