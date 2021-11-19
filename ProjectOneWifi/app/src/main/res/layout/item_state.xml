@@ -66,7 +66,7 @@
         android:id="@+id/tvRecycleViewMenajeState"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="Mensaje predeterminado sdlfjsdn lkd ljdsf lds dlsj fllkjsf lsdfgi ugiu  uig ii igiug iu igiu gj jdsflj"
+        android:text="Mensaje predeterminado "
         android:textColor="@color/colorLetterBlack"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
@@ -74,7 +74,7 @@
         android:textSize="18dp"
         android:gravity="left"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintStart_toEndOf="@+id/imgRecycleViewUserState"
+        app:layout_constraintStart_toStartOf="@+id/imgRecycleViewUserState"
         app:layout_constraintTop_toBottomOf="@+id/tvRecycleViewIdPublicacionState" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

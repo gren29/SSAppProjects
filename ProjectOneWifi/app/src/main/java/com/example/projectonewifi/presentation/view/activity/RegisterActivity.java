@@ -37,8 +37,8 @@ import com.example.projectonewifi.presentation.presenter.RegisterPresenter;
                 name = binding.etNameRegister.getText().toString();
                 password = binding.etPasswordRegister.getText().toString();
                 email = binding.etEmailRegister.getText().toString();
-                if (presenter.insertDataUser(idUser, name, password, email)) {
-                    Intent intent = new Intent(RegisterActivity.this, SplashActivity.class);
+                if (presenter.insertDataUser(idUser, name, password, email, getApplicationContext())) {
+                    Intent intent = new Intent(RegisterActivity.this, Home.class);
                     startActivity(intent);
                     onSaveIdUser(idUser);
                     finish();

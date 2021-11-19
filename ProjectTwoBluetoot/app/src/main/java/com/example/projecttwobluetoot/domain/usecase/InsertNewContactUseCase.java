@@ -1,5 +1,7 @@
 package com.example.projecttwobluetoot.domain.usecase;
 
+import android.content.Context;
+
 import com.example.projecttwobluetoot.data.repository.HomeRepository;
 import com.example.projecttwobluetoot.domain.model.ContactModel;
 
@@ -9,7 +11,7 @@ public class InsertNewContactUseCase {
 
     public HomeRepository homeRepository = new HomeRepository();
 
-    public ArrayList<ContactModel> insertContact(String idUser) {
-        return homeRepository.insertContact(idUser);
+    public ArrayList<ContactModel> insertContact(String idPublicacion, String idUser, Context context) {
+        return homeRepository.insertContact(idPublicacion,idUser, context);
     }
 }

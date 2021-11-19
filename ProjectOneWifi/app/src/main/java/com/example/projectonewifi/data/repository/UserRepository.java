@@ -1,21 +1,21 @@
 package com.example.projectonewifi.data.repository;
 
+import android.content.Context;
+
 import com.example.projectonewifi.data.local.BDTestUsers;
+import com.example.projectonewifi.data.local.DBUsers;
 
 public class UserRepository {
 
     public BDTestUsers bdTestUsers = new BDTestUsers();
+    public DBUsers dbUsers = new DBUsers();
 
-    public boolean getIdUser(String idUser){
-        return bdTestUsers.getUser(idUser);
+    public boolean getIdUser(String idUser,String password, Context context){
+        return dbUsers.getUser(idUser, password, context);
     }
 
-    public boolean getPassword(String password){
-        return bdTestUsers.getPassword(password);
-    }
-
-    public boolean insertDataUser(String idUser, String name, String password, String email) {
-        bdTestUsers.insertUser(idUser, name, password, email);
+    public boolean insertDataUser(String idUser, String name, String password, String email, Context context) {
+        dbUsers.insertUser(idUser, name, password, email, context);
         return true;
     }
 }

@@ -1,7 +1,11 @@
 package com.example.projecttwobluetoot.data.repository;
 
+import android.content.Context;
+
 import com.example.projecttwobluetoot.data.local.BDTestContact;
 import com.example.projecttwobluetoot.data.local.BDTestStates;
+import com.example.projecttwobluetoot.data.local.DBContact;
+import com.example.projecttwobluetoot.data.local.DBStates;
 import com.example.projecttwobluetoot.domain.model.ContactModel;
 import com.example.projecttwobluetoot.domain.model.StateModel;
 
@@ -12,19 +16,22 @@ public class HomeRepository {
     public BDTestStates bdTestStates = new BDTestStates();
     public BDTestContact bdTestContact = new BDTestContact();
 
-    public ArrayList<StateModel> getStatesList() {
-        return bdTestStates.getStateList();
+    public DBStates bdStates = new DBStates();
+    public DBContact dbContact = new DBContact();
+
+    public ArrayList<StateModel> getStatesList(Context context) {
+        return bdStates.getStateList(context);
     }
 
-    public ArrayList<ContactModel> getListContacts(){
-        return bdTestContact.getListContacts();
+    public ArrayList<ContactModel> getListContacts(Context context){
+        return dbContact.getListContacts(context);
     }
 
-    public ArrayList<StateModel> insertState(String idUser, String mensaje) {
-        return bdTestStates.insertState(idUser, mensaje);
+    public ArrayList<StateModel> insertState(String idPublicacion, String idUser, String mensaje, Context context) {
+        return bdStates.insertState(idPublicacion,idUser, mensaje,context);
     }
 
-    public ArrayList<ContactModel> insertContact(String idUser) {
-        return bdTestContact.insertContact(idUser);
+    public ArrayList<ContactModel> insertContact(String idPublicacion, String idUser, Context context) {
+        return dbContact.insertContact(idPublicacion, idUser, context);
     }
 }

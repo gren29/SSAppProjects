@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
                 name = binding.etNameRegister.getText().toString();
                 password = binding.etPasswordRegister.getText().toString();
                 email = binding.etEmailRegister.getText().toString();
-                if (presenter.insertDataUser(idUser, name, password, email)) {
+                if (presenter.insertDataUser(idUser, name, password, email, getApplicationContext())) {
                     Intent intent = new Intent(RegisterActivity.this, SplashActivity.class);
                     startActivity(intent);
                     onSaveIdUser(idUser);

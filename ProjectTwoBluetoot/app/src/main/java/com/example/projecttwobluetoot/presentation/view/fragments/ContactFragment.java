@@ -3,15 +3,13 @@ package com.example.projecttwobluetoot.presentation.view.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.projecttwobluetoot.R;
 import com.example.projecttwobluetoot.domain.model.ContactModel;
 import com.example.projecttwobluetoot.presentation.adapter.ContactAdapter;
@@ -26,6 +24,7 @@ public class ContactFragment extends Fragment {
     private EditText etContact;
     private ImageButton btnNewContact;
     private String idContact;
+    private String newIdContact;
 
     private HomePresenter presenter = new HomePresenter();
 
@@ -54,7 +53,7 @@ public class ContactFragment extends Fragment {
         recyclerViewContaccts = (RecyclerView)view.findViewById(R.id.rvContacts);
         recyclerViewContaccts.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        listContacts = presenter.checkContacts();
+        listContacts = presenter.checkContacts(getContext());
         ContactAdapter adapter = new ContactAdapter(listContacts);
         recyclerViewContaccts.setAdapter(adapter);
 
@@ -62,7 +61,8 @@ public class ContactFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 idContact = etContact.getText().toString();
-                listContacts = presenter.onClickAddContact(idContact);
+                newIdContact = createIdContact();
+                listContacts = presenter.onClickAddContact(newIdContact,idContact,getContext());
                 ContactAdapter adapter = new ContactAdapter(listContacts);
                 recyclerViewContaccts.setAdapter(adapter);
                 etContact.setText("");
@@ -70,5 +70,9 @@ public class ContactFragment extends Fragment {
         });
 
         return  view;
+    }
+
+    public String createIdContact(){
+        return  presenter.getIdContact();
     }
 }

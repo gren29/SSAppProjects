@@ -29,6 +29,7 @@ public class StateFragment extends Fragment {
     private ImageButton tbnSend;
     private String stringState;
     private String idUser;
+    private String newiIdPublicacion;
 
     public static final String MY_PREFERENCES = "ID_USER";
 
@@ -59,7 +60,7 @@ public class StateFragment extends Fragment {
         recyclerViewStates = (RecyclerView)view.findViewById(R.id.rvStates);
         recyclerViewStates.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        listStates = presenter.getStates();
+        listStates = presenter.getStates(getContext());
         StateAdapter adapter = new StateAdapter(listStates);
         recyclerViewStates.setAdapter(adapter);
 
@@ -67,8 +68,9 @@ public class StateFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 stringState = etState.getText().toString();
+                newiIdPublicacion = createIdPublicacion();
                 onGetIdUser();
-                listStates = presenter.onClickSendState(idUser, stringState);
+                listStates = presenter.onClickSendState(newiIdPublicacion,idUser, stringState,getContext());
                 StateAdapter adapter = new StateAdapter(listStates);
                 recyclerViewStates.setAdapter(adapter);
                 etState.setText("");
@@ -80,5 +82,9 @@ public class StateFragment extends Fragment {
     public void onGetIdUser() {
         SharedPreferences sharedPreferencesKeepSignedIn = getActivity().getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         idUser =  sharedPreferencesKeepSignedIn.getString("user_id", " - ").toString();
+    }
+
+    public String createIdPublicacion() {
+        return presenter.getIdPublicacion();
     }
 }

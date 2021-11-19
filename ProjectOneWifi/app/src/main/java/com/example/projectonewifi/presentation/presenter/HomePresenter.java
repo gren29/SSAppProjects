@@ -1,12 +1,16 @@
 package com.example.projectonewifi.presentation.presenter;
 
+import android.content.Context;
+
 import com.example.projectonewifi.domain.model.ContactModel;
 import com.example.projectonewifi.domain.model.StateModel;
 import com.example.projectonewifi.domain.usecase.GetDataHomeUseCase;
 import com.example.projectonewifi.domain.usecase.InsertNewContactUseCase;
 import com.example.projectonewifi.domain.usecase.InsertStateUseCase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HomePresenter implements HomeInterface {
 
@@ -15,13 +19,13 @@ public class HomePresenter implements HomeInterface {
     private InsertNewContactUseCase insertNewContactUseCase = new InsertNewContactUseCase();
 
     @Override
-    public ArrayList<StateModel> onClickSendState(String idUser, String mensaje) {
-        return insertStateUseCase.insertState(idUser, mensaje);
+    public ArrayList<StateModel> onClickSendState(String idPublicacion, String idUser, String mensaje, Context context) {
+        return insertStateUseCase.insertState(idPublicacion,idUser, mensaje,context);
     }
 
     @Override
-    public ArrayList<ContactModel> onClickAddContact(String idUser) {
-        return insertNewContactUseCase.insertContact(idUser);
+    public ArrayList<ContactModel> onClickAddContact(String idPublicacion, String idUser, Context context) {
+        return insertNewContactUseCase.insertContact(idPublicacion,idUser, context);
     }
 
     @Override
@@ -30,12 +34,28 @@ public class HomePresenter implements HomeInterface {
     }
 
     @Override
-    public ArrayList<StateModel> getStates() {
-        return getDataHomeUseCase.getStatesList();
+    public ArrayList<StateModel> getStates(Context context) {
+        return getDataHomeUseCase.getStatesList(context);
     }
 
     @Override
-    public ArrayList<ContactModel> checkContacts() {
-        return getDataHomeUseCase.getListContacts();
+    public ArrayList<ContactModel> checkContacts(Context context) {
+        return getDataHomeUseCase.getListContacts(context);
     }
+
+    @Override
+    public String getIdPublicacion() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss z");
+        String idPublicacion = "idp"+sdf.format(new Date());
+        return idPublicacion;
+    }
+
+    @Override
+    public String getIdContact() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss z");
+        String idContact = "idc"+sdf.format(new Date());
+        return idContact;
+    }
+
+
 }

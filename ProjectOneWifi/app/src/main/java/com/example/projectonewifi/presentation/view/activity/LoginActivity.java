@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
                 idUser = binding.etIdUserLogin.getText().toString();
                 password = binding.etPasswordLogin.getText().toString();
 
-                if (presenter.onClickLogin(idUser, password)) {
+                if (presenter.onClickLogin(idUser, password, getApplicationContext())) {
                     Intent intent = new Intent(LoginActivity.this, Home.class);
                     startActivity(intent);
                     onSaveIdUser(idUser);
